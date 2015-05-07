@@ -1,0 +1,101 @@
+open
+	vracia deskriptor na subor, lebo proces nemoze priamo narabat s objektami jadra - cez deskriptory
+	dup() - kopia deskriptora
+	fork() dieta zdedi deskriptory
+		ak by bol fork pred open() tak kazdy proces nanovo otvara si subor
+
+
+		_ _ _ _ _ _ |
+	0	|___________| /dev/tty0 stdin
+   |1|	|___________| /dev/tty2 stdout
+	2	|___________| /dev/tty2 stderr
+	3	|___________| /home/os/subor.txt
+	4	|___________|
+	5
+
+	navrhovy vzor presmerovana
+	1. otvor cielovy/zdroj subor - open
+	2. zatvor to co chces presmerovat - close
+	3. skopiruj deskriptor cielo/zdrooveho suboru - dup
+	4. zatvor deskriptor ciel/zro suboru - close
+
+	ak chcem napr presmerovat standardny vystup tak zatvorime |1|
+	fd = open("subor.txt",WRITE);
+	close(1); (cize na |1| bude NIL)
+	dup(fd); zacne prehladavat tabulku deskriptorov a na prve volne miesto skopiruje hodnotu
+				takze bude stdin ukazovat na subor.txt
+  	close(fd);
+
+  	___
+  	printf("bbaaba") -> makr fprntf(stdout,"bbaaba");
+
+  	dup2() 2 argumenty - co a kam
+
+  	HLAVICKOVE SUBORY
+  	/usr/include
+
+
+Od architektury zavisle veci byvaju v /usr/include/bits
+  	napr /usr/include/bits/stat.h
+
+
+stat()
+	lstat() - informacie o linke (nie o cielovom subore)
+	fstat() alebo stat() - informacie o cielovom subore - cize ak narazi na linku, tak vrati informacie o koncovom subore a nie linke
+
+	manualova stranka stat je zuppa
+
+ 	S_ISREG - je regularny subor ?
+
+
+access
+	co mozme robit so suborom, adresarom atd...
+
+scandir()
+
+readdir()
+	1. otvorenie adresara
+	2. citanie adresara
+	3. zatvorenie adresara
+
+
+SIGNAAALY
+
+	bitove pole
+	cislo signalu je pozicia v poli bitov
+
+	1. proces nie je pripraveny na spracovanie signalu
+		- vtedy sa aplikuje defaultne spravanie ( poskytuje OS defaultne handleri - obsluzne rutina signalov, ktora ukonci proces)
+	2. proces je pripraveny
+		a - ignorovanie
+		b - spracovanie
+		c - (docasne) blokovanie spracovania
+
+	signali su spolahlive a nespolahlive
+	nespolahlivy - jednorazovo definovanu obsluznu rutinu
+		1. inst. handler
+		2. obdrz sig
+		3. spracovanie signalu (GOTO 1.)
+
+	spolahlive signaly vyuzivaju trvalo nainstalovane handlery - rutiny
+
+what is this
+	SIGACTION
+	SIGPROCMASK
+	SIGSUSPEND
+
+	maska blokovanych signalov - bits
+		rovnaky rozmer ako bitove pole
+		tam kde je jednotka, tak ten signal sa neuskutocny z bitoveho pola
+
+signal kill - hned vypne proces
+signal term - na ten este mozeme mat spravenu obsluznu rutinu
+
+	SIGSET_T - manipuluje s maskou - asi
+	sigemptyset() - vynuluje vsetky bity masky
+	sigfillset() - vsetky nastavi na jednotku
+	sigdelset( , SIG) - nastavi nulu na pozicii, ktory je nastaveny ako druhy argument
+	sigaddset(,SIG) - nastavi 1 na pozicii signalu, ktory je uvedeny ako druhy argument
+
+hned na zaciatku zablokujeme vsetky signay, o ktorych spracovavanie mame zaujem ( aby sme zabranil ukonceniu programu )
+	aby sme si mohli nainstalovat handlery a potom ich mozeme odblokovat
