@@ -3,8 +3,6 @@
 #include <unistd.h>
 #include <signal.h>
 #include <string.h>
-#include <sys/wait.h>
-#include <sys/types.h>
 
 int spawn(char* program, char** arg_list) {
 	pid_t child_pid;
@@ -28,18 +26,12 @@ void handler(int signal_number) {
     printf("Control C blee \n");
 }
 
-sig_atomic_t child_exit_status = 0;
+sig_atomic_t child_exit_status;
 void clean_up_child_process(int signal_number) {
     int status;
     wait(&status);
     child_exit_status = status;
-    printf("\n\nEnded child process async\n");
-    sleep(5);
-    printf("Bye from async pid %d\n", getpid());
-}
-
-void sigusr1_handler(int signal_number) {
-    printf("\nsignal %d triggered\n", signal_number);
+    printf("Ended child process async\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -116,55 +108,20 @@ int main(int argc, char *argv[]) {
 //     }
 // 
 // 	printf("SIGINT was raise %d times \n", sigusr1_count);
-//
-//    struct sigaction sigchild_action;
-//    memset(&sigchild_action, 0, sizeof(sigchild_action));
-//    sigchild_action.sa_handler = &clean_up_child_process;
-//  
-//    if(sigaction(SIGCHLD, &sigchild_action, NULL) == -1) {
-//        perror("Toz error\n");
-//        exit(1);
-//    }
-//
-//    pid_t child_pid;
-//
-//    child_pid = fork();
-//
-//    switch(child_pid) {
-//        case -1:
-//            perror("fork");
-//            return -1;
-//            
-//        case 0:
-//            printf("child is gonna sleep in 2secs pid %d\n", getpid());
-////            sleep(2);
-//            exit(0);
-//            break;
-//        default:
-//            printf("Hi I'm parent, gonna wait pid %d\n", getpid());
-////            unsigned int secondsToGo = 0;
-////            if((secondsToGo = sleep(5)) != 0) {
-////                perror("Parent received signal\n");
-////                fprintf(stderr,"Seconds to go %u\n", secondsToGo);
-////            }
-//            break;
-//    }
-//    
-//    int i = 0;
-//    for(;i<100000;i++) {
-//        printf("/");
-//    }
-    struct sigaction sigusr_action;
-    memset(&sigusr_action, 0, sizeof(sigusr_action));
 
-    sigusr_action.sa_handler = &sigusr1_handler;
-    if(sigaction(SIGUSR1, &sigusr_action, NULL) == -1) {
-        perror("assigning signal SIGUSR1 handler error");
-        exit(1);
+    struct sigaction sigchild_action;
+    memset(&sigchild_action, 0, sizeof(sigchild_action));
+    sigchild_action.sa_handler = &clean_up_child_process;
+    sigaction(SIGCHLD, &sigchild_action,NULL);
+   
+    pid_t child_pid;
+
+    child_pid = fork();
+
+    if(child_pid == 0) {
+        printf("\nchild here");
+        exit(0);
     }
 
-    sleep(60);
-
-    
- 	return 0;
+	return 0;
 }
