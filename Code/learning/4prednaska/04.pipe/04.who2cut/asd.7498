@@ -1,0 +1,206 @@
+close(1)                                = 0
+dup(4)                                  = 1
+close(3)                                = 0
+close(4)                                = 0
+execve("/home/os/bin/who", ["who"], [/* 35 vars */]) = -1 ENOENT (No such file or directory)
+execve("/usr/local/bin/who", ["who"], [/* 35 vars */]) = -1 ENOENT (No such file or directory)
+execve("/usr/bin/who", ["who"], [/* 35 vars */]) = 0
+brk(0)                                  = 0x8460000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb76fe000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=70675, ...}) = 0
+mmap2(NULL, 70675, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb76ec000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/i686/cmov/libc.so.6", O_RDONLY) = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0\0n\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1327556, ...}) = 0
+mmap2(NULL, 1337704, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0xb75a5000
+mprotect(0xb76e5000, 4096, PROT_NONE)   = 0
+mmap2(0xb76e6000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x140) = 0xb76e6000
+mmap2(0xb76e9000, 10600, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb76e9000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb75a4000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb75a48d0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb76e6000, 8192, PROT_READ)   = 0
+mprotect(0xb771c000, 4096, PROT_READ)   = 0
+munmap(0xb76ec000, 70675)               = 0
+brk(0)                                  = 0x8460000
+brk(0x8481000)                          = 0x8481000
+open("/usr/lib/locale/locale-archive", O_RDONLY|O_LARGEFILE) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=1527584, ...}) = 0
+mmap2(NULL, 1527584, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb742f000
+close(3)                                = 0
+access("/var/run/utmpx", F_OK)          = -1 ENOENT (No such file or directory)
+open("/var/run/utmp", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+fcntl64(3, F_GETFD)                     = 0x1 (flags FD_CLOEXEC)
+_llseek(3, 0, [0], SEEK_SET)            = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\10\0\0\0\347\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\2\0\0\0\0\0\0\0~\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\1\0\0\0002N\0\0~\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\10\0\0\0|\3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\7\0\0\0\363\6\0\0tty7\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+kill(1779, SIG_0)                       = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\6\0\0\0\201\7\0\0tty1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\6\0\0\0\202\7\0\0tty2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\6\0\0\0\205\7\0\0tty5\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\6\0\0\0\203\7\0\0tty3\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\6\0\0\0\206\7\0\0tty6\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\6\0\0\0\204\7\0\0tty4\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\7\0\0\0\371\7\0\0pts/0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+kill(2041, SIG_0)                       = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\7\0\0\0\371\7\0\0pts/1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+kill(2041, SIG_0)                       = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "\7\0\0\0\371\7\0\0pts/2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"..., 384) = 384
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+kill(2041, SIG_0)                       = 0
+alarm(0)                                = 0
+rt_sigaction(SIGALRM, {0xb76a6070, [], 0}, {SIG_DFL, [], 0}, 8) = 0
+alarm(10)                               = 0
+fcntl64(3, F_SETLKW, {type=F_RDLCK, whence=SEEK_SET, start=0, len=0}) = 0
+read(3, "", 384)                        = 0
+fcntl64(3, F_SETLKW, {type=F_UNLCK, whence=SEEK_SET, start=0, len=0}) = 0
+alarm(0)                                = 10
+rt_sigaction(SIGALRM, {SIG_DFL, [], 0}, NULL, 8) = 0
+close(3)                                = 0
+stat64("/dev/tty7", {st_mode=S_IFCHR|0600, st_rdev=makedev(4, 7), ...}) = 0
+time(NULL)                              = 1425987020
+open("/usr/share/locale/locale.alias", O_RDONLY) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=2570, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb76fd000
+read(3, "# Locale name alias data base.\n#"..., 4096) = 2570
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0xb76fd000, 4096)                = 0
+open("/usr/share/locale/en_US.utf8/LC_MESSAGES/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en_US/LC_MESSAGES/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en.utf8/LC_MESSAGES/coreutils.mo", O_RDONLY) = -1 ENOENT (No such file or directory)
+open("/usr/share/locale/en/LC_MESSAGES/coreutils.mo", O_RDONLY) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=435, ...}) = 0
+mmap2(NULL, 435, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb76fd000
+close(3)                                = 0
+open("/usr/lib/gconv/gconv-modules.cache", O_RDONLY) = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=26048, ...}) = 0
+mmap2(NULL, 26048, PROT_READ, MAP_SHARED, 3, 0) = 0xb76f6000
+close(3)                                = 0
+open("/etc/localtime", O_RDONLY)        = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=2427, ...}) = 0
+fstat64(3, {st_mode=S_IFREG|0644, st_size=2427, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb76f5000
+read(3, "TZif2\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\4\0\0\0\4\0\0\0\0"..., 4096) = 2427
+_llseek(3, -24, [2403], SEEK_CUR)       = 0
+read(3, "\nMST7MDT,M3.2.0,M11.1.0\n", 4096) = 24
+close(3)                                = 0
+munmap(0xb76f5000, 4096)                = 0
+fstat64(1, {st_mode=S_IFIFO|0600, st_size=0, ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb76f5000
+stat64("/dev/pts/0", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 0), ...}) = 0
+stat64("/etc/localtime", {st_mode=S_IFREG|0644, st_size=2427, ...}) = 0
+stat64("/dev/pts/1", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 1), ...}) = 0
+stat64("/etc/localtime", {st_mode=S_IFREG|0644, st_size=2427, ...}) = 0
+stat64("/dev/pts/2", {st_mode=S_IFCHR|0620, st_rdev=makedev(136, 2), ...}) = 0
+stat64("/etc/localtime", {st_mode=S_IFREG|0644, st_size=2427, ...}) = 0
+write(1, "os       tty7         2015-03-03"..., 182) = 182
+close(1)                                = 0
+munmap(0xb76f5000, 4096)                = 0
+close(2)                                = 0
+exit_group(0)                           = ?

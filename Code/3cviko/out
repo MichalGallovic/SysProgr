@@ -1,0 +1,5 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+vagrant   2398  0.0  0.2  21648  4248 pts/0    Ss   06:49   0:00 -bash
+vagrant   2478  0.0  0.2  21656  4256 pts/2    Ss   06:52   0:00 -bash
+vagrant   2847  0.2  0.3  49736  7024 pts/0    S+   07:39   0:07 vim presmerovanie.c
+vagrant   3586  0.0  0.0  17176  1304 pts/2    R+   08:38   0:00 ps u

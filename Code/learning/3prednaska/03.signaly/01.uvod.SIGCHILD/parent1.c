@@ -5,6 +5,7 @@
 #include <sys/wait.h>
 #include <string.h>
 
+
 sig_atomic_t child_status = 0;
 
 void handler(int signal_number){
@@ -12,6 +13,7 @@ void handler(int signal_number){
   wait (&status);
   /* Store its exit status in a global variable. */
   child_status = status;
+  printf("Child sent me %d\n", WEXITSTATUS(status));
 };
 
 
@@ -35,8 +37,7 @@ int main() {
     default:
       fprintf(stderr, "[perror] I am the parent process. I have created a child with PID=%d and will do some work\n",pid);
       fprintf(stderr, "[perror] Now I am testing my child status value\n");
-      while(!child_status)
-         ;
+      sleep(1);
       fprintf(stderr, "[perror] My child finished I can also\n");	     
       break;
   }

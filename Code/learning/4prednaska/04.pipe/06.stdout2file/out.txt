@@ -1,0 +1,6 @@
+total 16
+drwxr-xr-x 1 vagrant vagrant  170 May 11 09:31 .
+drwxr-xr-x 1 vagrant vagrant  306 Mar 11 11:25 ..
+-rwxr-xr-x 1 vagrant vagrant 8888 May 11 09:31 main
+-rw-r--r-- 1 vagrant vagrant  509 Mar 11 11:25 main.c
+-rw-r----- 1 vagrant vagrant    0 May 11 09:31 out.txt

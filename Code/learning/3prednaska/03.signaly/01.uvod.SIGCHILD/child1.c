@@ -2,7 +2,7 @@
 
 int main() {
   fprintf(stderr, "[child] I am child and just finishing.\n");
-  return 1;
+  return 40;
 }
 
 
