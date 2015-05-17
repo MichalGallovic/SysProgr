@@ -4,7 +4,7 @@
 #include "../common/student.h"
 #include "../common/utility.h"
 
-#define MSG_QUEUE_KEY 12345     //kluc identifikujuci frontu sprav 
+#define MSG_QUEUE_KEY 424242     //kluc identifikujuci frontu sprav 
 #define MSG_TYPE_NUM_STUDENTS 1 //typ spravy pre poslanie poctu studentov
 #define MSG_TYPE_STUDENT 2      //typ spravy pre poslanie informacii o studentovi
 

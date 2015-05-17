@@ -1,0 +1,2 @@
+gcc -Wall -g -ggdb -o server server.c shared.c -lpthread
+gcc -Wall -g -ggdb -o client client.c shared.c -lpthread

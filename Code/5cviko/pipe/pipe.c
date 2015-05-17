@@ -9,9 +9,10 @@
 void runReader(int input, int output) {
 	STUDENT student;
     close(output);
-
-	while(read(input,&student,sizeof(student)) > 0 ){
-		PrintStudent(&student);
+    char buf[20];
+	while(read(input,buf,sizeof(buf)) > 0 ){
+		//PrintStudent(&student);
+		printf("%s\n", buf);
 	}
 	printf("child: vsetko precitane\n");
     close(input);
@@ -21,18 +22,22 @@ void runReader(int input, int output) {
 void runWriter(int input, int output) {
 	STUDENT student;
     close(input);
-	SetStudent(& student, "meno1", 1);
-	CHECK( write(output,&student, sizeof(student)) != -1);
-	SetStudent(& student, "meno2", 2);
-	CHECK( write(output,&student, sizeof(student)) != -1);
+	//SetStudent(& student, "meno1", 1);
+	//CHECK( write(output,&student, sizeof(student)) != -1);
+	//SetStudent(& student, "meno2", 2);
+	char buf[20];
+	scanf("%s",buf);
+	CHECK( write(output,buf, sizeof(buf)) != -1);
     close(output);
 }
 
 int main(int argc, char * argv[]) {
 	pid_t pid;
 	int channel[2]; //komunikacny kanal implementovany nepomenovanou rurou
-
+    int times = 3;
 	//vytvorenie nepomenovanej rury
+
+	while(times-- > 0) {
     CHECK( pipe(channel) != -1 );
 
 	pid = fork();
@@ -42,11 +47,14 @@ int main(int argc, char * argv[]) {
 		break;
 	case 0:
 		runReader(channel[0], channel[1]); //detsky process
+		exit(EXIT_SUCCESS);
 		break;
 	default:
 		runWriter(channel[0], channel[1]); //rodicovsky process		
 		wait(NULL);
+		printf("times : %d\n",times);
 	}
-
+    }
+    
 	return EXIT_SUCCESS;
 }
